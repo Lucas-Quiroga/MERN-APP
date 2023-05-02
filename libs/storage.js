@@ -1,5 +1,5 @@
 /**
- * LÓGICA RELACIONADA A GUARDADO
+ * LÓGICA RELACIONADA A GUARDADO localmente
  */
 
 const multer = require("multer");

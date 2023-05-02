@@ -32,7 +32,25 @@ async function getProducts(req, res) {
   res.status(200).send({ products });
 }
 
+//fúncion para eliminar un producto (MÉTODO DELETE)
+async function deleteProduct(req, res) {
+  try {
+    const deletedProduct = await Product.findByIdAndDelete(req.params.id);
+
+    if (!deletedProduct) {
+      return res.status(404).json({
+        message: "Producto no encontrado",
+      });
+    }
+
+    res.sendStatus(204);
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+}
+
 module.exports = {
   addProduct,
   getProducts,
+  deleteProduct,
 };
